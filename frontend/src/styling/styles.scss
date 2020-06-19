@@ -1,0 +1,117 @@
+
+$slateGrey : #2F4F4F;
+$lightGrey : #A9A9A9;
+$green : #4CAF50;
+$blue : #008CBA;
+$white : white;
+
+@mixin defaultDiv {
+    color: $white;
+    display: grid;
+    height: fit-content;
+    width: 50%;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.dashboard{
+    display: flex;
+}
+
+h1{
+    color: $white;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.quotation{
+    font-style: italic;
+    color: $lightGrey;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.imagesList{
+    
+    @include defaultDiv;
+    
+    li{
+        width: 600px;
+        line-height: 38px;
+        margin: 10px;
+        padding: 5px;
+        list-style: none;
+        border-radius: 5px;
+        background-color: darken($color: $slateGrey, $amount: 10);
+    }
+
+    img,svg{
+        vertical-align: middle;
+        height: 40px;
+        width: 40px;
+    }
+}
+
+.dataForm{
+    @include defaultDiv;
+    //float: right;
+
+    .default {
+        border: $lightGrey;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 100%;
+        line-height: 38px;
+        margin: 10px;
+        margin-bottom: 15px;
+        padding: 5px;
+        outline: none;
+        &:focus{
+            background-color: $lightGrey;
+        }
+    }
+
+    label {
+        padding: 5px;
+        margin-left: 10px;
+    }
+
+    .fileUpload{
+        margin: 10px;
+        outline: none;
+    }
+
+
+    .submit {
+        border: none;
+        color: white;
+        background-color: $green;
+        width: 100%;
+        margin: 10px;
+        line-height: 38px;
+        outline: none;
+        font-size: 16px;
+
+        &:hover{
+            cursor: pointer;
+            background-color: darken($color: $green, $amount: 5) ;
+        }
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .dataForm,.imagesList{
+       display: grid;
+    }
+    .dashboard{
+        display: grid;
+    }
+    .imagesList{
+        li{
+            width: 220px;
+        }
+    }
+  }
